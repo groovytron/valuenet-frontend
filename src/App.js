@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+import QuestionContextProvider from "./context/QuestionContext";
+import Question from "./components/Question";
+import Result from "./components/Result";
+import {ToastContainer} from "react-toastify";
+import Container from 'react-bootstrap/Container';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container className="p-3">
+          <ToastContainer/>
+          <QuestionContextProvider>
+              <Question/>
+              <Result/>
+          </QuestionContextProvider>
+      </Container>
   );
 }
 
