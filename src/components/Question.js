@@ -34,7 +34,7 @@ const Question = () => {
 
     return (
         <Jumbotron>
-            <h1 className="display-3">Talk to your database</h1>
+            <h1>Talk to your database</h1>
             <Form id="question" onSubmit={handleSubmit}>
                 <Form.Group controlId="formApiKey">
                     <Form.Control name="apiKey"
@@ -63,6 +63,10 @@ const Question = () => {
                         </InputGroup.Append>
                     </InputGroup>
                 </Form.Group>
+                {/*TODO: create an auto-submit when speech-to-text ends*/}
+                {/*<Form.Group id="formSubmit">*/}
+                {/*    <Form.Check type="checkbox" label="Auto-submit when speech-to-text ends"/>*/}
+                {/*</Form.Group>*/}
                 <Button variant="outline-primary" type="submit">
                     Submit
                 </Button>
