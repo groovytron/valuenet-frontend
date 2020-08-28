@@ -28,8 +28,9 @@ const Question = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formElements = event.target.elements
-        poseQuestion(questionManualOrSpeechToText, formElements.apiKey.value)
+        const formElements = event.target.elements;
+        poseQuestion(questionManualOrSpeechToText, formElements.apiKey.value);
+        setQuestionManualOrSpeechToText('');
     }
 
     return (

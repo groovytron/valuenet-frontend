@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 const SpeechToTextButton = ({onTranscriptChanged}) => {
     const [isListening, setIsListening] = useState(false)
-    const {transcript} = useSpeechRecognition()
+    const {transcript,  resetTranscript} = useSpeechRecognition()
 
 
     useEffect(()=> {
@@ -24,6 +24,7 @@ const SpeechToTextButton = ({onTranscriptChanged}) => {
     }
 
     const beginSpeechToText = () => {
+        resetTranscript()
         SpeechRecognition.startListening({ continuous: true }).then(()=> {
             setIsListening(true)
             console.log("Listening started")

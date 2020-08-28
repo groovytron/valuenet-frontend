@@ -18,7 +18,7 @@ const Result = () => {
 
         return (
             <>
-                <ReactJson src={data_sanitized} name={false} enableClipboard={false} displayDataTypes={false} collapsed={true} />
+                <h2>Question: <i>{dataRaw['question']}</i></h2>
                 <table className="table table-striped mt-5">
                     <tbody>
                     {queryResults.map((resultRow, idx) => (
@@ -30,6 +30,7 @@ const Result = () => {
                         </tr>))}
                     </tbody>
                 </table>
+                <ReactJson src={data_sanitized} name={false} enableClipboard={false} displayDataTypes={false} collapsed={true} />
             </>);
     }
 
