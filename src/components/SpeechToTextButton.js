@@ -24,7 +24,7 @@ const SpeechToTextButton = ({onTranscriptChanged}) => {
     }
 
     const beginSpeechToText = () => {
-        SpeechRecognition.startListening().then(()=> {
+        SpeechRecognition.startListening({ continuous: true }).then(()=> {
             setIsListening(true)
             console.log("Listening started")
         });
