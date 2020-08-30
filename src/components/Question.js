@@ -7,12 +7,19 @@ import {QuestionContext} from "../context/QuestionContext";
 import SpeechToTextButton from "./SpeechToTextButton";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
+function apiKeyOrDefault() {
+    const apiKeyInURI = ((new URLSearchParams(window.location.search)).get("api-key"))
+    return apiKeyInURI ? apiKeyInURI : ''
+}
 
 const Question = () => {
 
     // we have an internal state for the question, independent if it gets written manually or dictated by speech-to-text
     // this is the value we then submit to the API
     const [questionManualOrSpeechToText, setQuestionManualOrSpeechToText] = useState('')
+
+    // we should be able to set the API-Key by query parameter, therefore we need to initialize it like this.
+    const [apiKey, setApiKey] = useState(apiKeyOrDefault())
 
     const {poseQuestion} = useContext(QuestionContext)
 
@@ -30,7 +37,7 @@ const Question = () => {
         event.preventDefault();
         const formElements = event.target.elements;
         poseQuestion(questionManualOrSpeechToText, formElements.apiKey.value);
-        setQuestionManualOrSpeechToText('');
+        // setQuestionManualOrSpeechToText('');
     }
 
     return (
@@ -42,6 +49,8 @@ const Question = () => {
                                   size="sm"
                                   type="text"
                                   placeholder="API Key"
+                                  onChange={(e)=>{setApiKey(e.target.value)}}
+                                  value={apiKey}
                                   required/>
                     <Form.Text className="text-muted">
                         This key is necessary to avoid unnecessary traffic to the service. Please ask the creators of
@@ -58,13 +67,13 @@ const Question = () => {
                                       type="text"
                                       placeholder="Enter your question here or use the text-to-speech button to the right."
                                       onChange={handleQuestionChanged}
-                                      value={questionManualOrSpeechToText} required/>
+                                      value={questionManualOrSpeechToText}
+                                      required/>
                         <InputGroup.Append>
                             <SpeechToTextButton onTranscriptChanged={handleTranscriptChanged}/>
                         </InputGroup.Append>
                     </InputGroup>
                 </Form.Group>
-                {/*TODO: create an auto-submit when speech-to-text ends*/}
                 {/*<Form.Group id="formSubmit">*/}
                 {/*    <Form.Check type="checkbox" label="Auto-submit when speech-to-text ends"/>*/}
                 {/*</Form.Group>*/}
