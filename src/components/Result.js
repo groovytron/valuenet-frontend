@@ -19,24 +19,28 @@ const Result = () => {
         return (
             <>
                 <h2>Question: <i>{dataRaw['question']}</i></h2>
-                <table className="table table-striped mt-5">
+                <ReactJson src={data_sanitized} name={false} enableClipboard={false} displayDataTypes={false} collapsed={true} />
+                <h3 className="mt-4">Data (max.100)</h3>
+                <table className="table">
                     <tbody>
                     {queryResults.map((resultRow, idx) => (
                         <tr key={idx}>
-                            {resultRow.map((resultCell) => (
-                                <td>
+                            <th scope="row">{idx + 1}</th>
+                            {resultRow.map((resultCell, idxColumn) => (
+                                <td key={idxColumn}>
                                     {resultCell}
                                 </td>))}
                         </tr>))}
                     </tbody>
                 </table>
-                <ReactJson src={data_sanitized} name={false} enableClipboard={false} displayDataTypes={false} collapsed={true} />
             </>);
     }
 
     if (promiseInProgress) {
         return (
-            <DotLoader size={150}/>
+            <div className="d-flex justify-content-center">
+                <DotLoader size={150}/>
+            </div>
         );
     }
 
