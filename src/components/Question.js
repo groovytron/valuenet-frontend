@@ -63,8 +63,8 @@ const Question = () => {
                         {/*// with the onChange-handler and the value-binding we basically create a two-way-binding on the*/}
                         {/*// questionManualOrSpeechToText variable*/}
                         <Form.Control name="question"
-                                      size="lg"
-                                      type="text"
+                                      as="textarea"
+                                      rows="5"
                                       placeholder="Enter your question here or use the text-to-speech button to the right."
                                       onChange={handleQuestionChanged}
                                       value={questionManualOrSpeechToText}

@@ -18,9 +18,8 @@ const Result = () => {
 
         return (
             <>
-                <h2>Question: <i>{dataRaw['question']}</i></h2>
                 <ReactJson src={data_sanitized} name={false} enableClipboard={false} displayDataTypes={false} collapsed={true} />
-                <h3 className="mt-4">Data (max.100)</h3>
+                <h3 className="mt-4">Results (max.100)</h3>
                 <table className="table">
                     <tbody>
                     {queryResults.map((resultRow, idx) => (

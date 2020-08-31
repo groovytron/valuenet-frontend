@@ -47,6 +47,8 @@ if (process.env.REACT_APP_PROTON_API_BASE) {
     axios.defaults.baseURL = process.env.REACT_APP_PROTON_API_BASE
 }
 
+// axios.defaults.baseURL = 'http://localhost:5000';
+
 const QuestionContextProvider = props => {
     const [dataRaw, setDataRaw] = useState()
     const [queryResults, setQueryResults] = useState()
@@ -58,7 +60,7 @@ const QuestionContextProvider = props => {
         setQueryResults(null)
 
         trackPromise(
-            axios.put(`question`, {"question": question}, {headers: {'X-API-Key': apiKey}}))
+            axios.put(`api/question`, {"question": question}, {headers: {'X-API-Key': apiKey}}))
             .then(res => {
                 setQueryResults(res.data['result'])
                 setDataRaw(res.data)
