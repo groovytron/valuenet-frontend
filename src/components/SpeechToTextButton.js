@@ -46,7 +46,7 @@ const SpeechToTextButton = ({onTranscriptChanged}) => {
                     onClick={toggleSpeechToText}>
                 {!isListening
                 ? <FaMicrophone/>
-                : <Spinner animation="grow" variant="danger"/>
+                : <Spinner animation="grow" size="sm" variant="danger"/>
                 }
 
             </Button>
