@@ -54,18 +54,18 @@ const QuestionContextProvider = props => {
     const [queryResults, setQueryResults] = useState()
 
 
-    const poseQuestion = (question, apiKey) =>  {
+    const poseQuestion = (question, database, apiKey) =>  {
 
         setDataRaw(null)
         setQueryResults(null)
 
         trackPromise(
-            axios.put(`api/question`, {"question": question}, {headers: {'X-API-Key': apiKey}}))
+            axios.put(`api/question/${database}`, {"question": question}, {headers: {'X-API-Key': apiKey}}))
             .then(res => {
                 setQueryResults(res.data['result'])
                 setDataRaw(res.data)
             }).catch((error => {
-                toast.error(`Hmm, something went wrong...\n '${error.message}'`, {
+                toast.error(`Hmm, something went wrong...\n ${error.message}`, {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,

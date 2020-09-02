@@ -1,12 +1,9 @@
 import React, {useContext} from "react";
 import {QuestionContext} from "../context/QuestionContext";
 import ReactJson from 'react-json-view'
-import DotLoader from "react-spinners/DotLoader";
-import {usePromiseTracker} from "react-promise-tracker";
 
 const Result = () => {
     const {dataRaw, queryResults} = useContext(QuestionContext)
-    const { promiseInProgress } = usePromiseTracker();
 
     if (dataRaw) {
 
@@ -33,14 +30,6 @@ const Result = () => {
                     </tbody>
                 </table>
             </>);
-    }
-
-    if (promiseInProgress) {
-        return (
-            <div className="d-flex justify-content-center">
-                <DotLoader size={150}/>
-            </div>
-        );
     }
 
     return null;

@@ -12,7 +12,7 @@ function apiKeyOrDefault() {
     return apiKeyInURI ? apiKeyInURI : ''
 }
 
-const Question = () => {
+const Question = ({onDatabaseChanged, initialDatabase}) => {
 
     // we have an internal state for the question, independent if it gets written manually or dictated by speech-to-text
     // this is the value we then submit to the API
@@ -33,10 +33,15 @@ const Question = () => {
         console.log(`Question changed manually: ${event.target.value}`);
     }
 
+    const handleDatabaseChanged = (event) => {
+        console.log(`Change database to: ${event.target.value}`)
+        onDatabaseChanged(event.target.value)
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const formElements = event.target.elements;
-        poseQuestion(questionManualOrSpeechToText, formElements.apiKey.value);
+        poseQuestion(questionManualOrSpeechToText, formElements.database.value, formElements.apiKey.value);
         // setQuestionManualOrSpeechToText('');
     }
 
@@ -57,7 +62,18 @@ const Question = () => {
                         the app for an API Key.
                     </Form.Text>
                 </Form.Group>
-
+                <Form.Group controlId="formDatabase">
+                    <Form.Control name="database"
+                                  as="select" onChange={handleDatabaseChanged}
+                                  defaultValue={initialDatabase}>
+                        <option value='concert_singer'>Concert/Singer</option>
+                        <option value='college_2'>College 2</option>
+                        <option value='cordis_temporary'>CORDIS</option>
+                    </Form.Control>
+                    <Form.Text className="text-muted">
+                        Select a database you want to talk to. Many of the smaller databases are part of the spider (https://yale-lily.github.io/spider) dataset, larger ones are custom databases.
+                    </Form.Text>
+                </Form.Group>
                 <Form.Group controlId="formQuestion">
                     <InputGroup>
                         {/*// with the onChange-handler and the value-binding we basically create a two-way-binding on the*/}
