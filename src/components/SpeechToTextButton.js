@@ -4,6 +4,8 @@ import {FaMicrophone} from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
+import './SpeechToTextButton.css';
+
 const SpeechToTextButton = ({onTranscriptChanged}) => {
     const [isListening, setIsListening] = useState(false)
     const {transcript,  resetTranscript} = useSpeechRecognition()
@@ -45,8 +47,8 @@ const SpeechToTextButton = ({onTranscriptChanged}) => {
                     onTouchEnd={endSpeechToText}
                     onClick={toggleSpeechToText}>
                 {!isListening
-                ? <FaMicrophone/>
-                : <Spinner animation="grow" size="sm" variant="danger"/>
+                ? <FaMicrophone className='clickthrough-element'/>
+                : <Spinner animation="grow" className='clickthrough-element' variant="danger"/>
                 }
 
             </Button>

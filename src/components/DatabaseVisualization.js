@@ -84,7 +84,7 @@ const DatabaseVisualization = ({selectedDatabase}) => {
 
         return (<CardDeck> {
             cards.map((card, idx) => (
-                <Card {...card.dbName === selectedDatabase && {'border': 'primary'}}>
+                <Card {...card.dbName === selectedDatabase && {'border': 'primary'}} key={idx} >
                     <Card.Header>{card.type}</Card.Header>
                     <Card.Body>
                         <Card.Title>{card.title}</Card.Title>
@@ -95,7 +95,7 @@ const DatabaseVisualization = ({selectedDatabase}) => {
                         <ListGroup variant="flush">
                             {
                                 card.links.map((link, idxLink) => (
-                                    <ListGroupItem>
+                                    <ListGroupItem key={idxLink}>
                                         <Card.Link target="_blank" rel="noopener noreferrer"
                                                    href={link.uri}>{link.label}</Card.Link>
                                     </ListGroupItem>
