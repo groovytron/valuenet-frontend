@@ -33,6 +33,18 @@ const DatabaseVisualization = ({selectedDatabase}) => {
             ]
         },
         {
+            dbName: 'hack_zurich',
+            type: "PostgreSQL",
+            title: "Zurich Hackathon",
+            text: "A small mobility database provided by the Swiss Federal Statistical Office. The database consists of 4 generic tables, which are accessed by ValueNet via a bunch of Views to make attribute/table names more expressive.",
+            links: [
+                {
+                    label: "ERM",
+                    uri: "database/hack_zurich/erd.png"
+                }
+            ]
+        },
+        {
             dbName: 'college_2',
             type: "SQLite",
             title: "College 2",

@@ -67,6 +67,7 @@ const Question = ({onDatabaseChanged, initialDatabase}) => {
                                   as="select" onChange={handleDatabaseChanged}
                                   defaultValue={initialDatabase}>
                         <option value='concert_singer'>Concert/Singer</option>
+                        <option value='hack_zurich'>Zurich Hackathon</option>
                         <option value='college_2'>College 2</option>
                         <option value='cordis_temporary'>CORDIS</option>
                     </Form.Control>
