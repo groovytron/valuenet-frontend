@@ -1,3 +1,5 @@
+# A simple frontend for ValueNet with speech-to-text
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
