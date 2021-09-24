@@ -9,7 +9,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 
 function apiKeyOrDefault() {
     const apiKeyInURI = ((new URLSearchParams(window.location.search)).get("api-key"))
-    return apiKeyInURI ? apiKeyInURI : ''
+    return apiKeyInURI ? apiKeyInURI : 'sjNmaCtviYzXWlS'
 }
 
 const Question = ({onDatabaseChanged, initialDatabase}) => {
@@ -66,7 +66,7 @@ const Question = ({onDatabaseChanged, initialDatabase}) => {
                     <Form.Control name="database"
                                   as="select" onChange={handleDatabaseChanged}
                                   defaultValue={initialDatabase}>
-                        <option value='concert_singer'>Concert/Singer</option>
+                    {/*<option value='concert_singer'>Concert/Singer</option>*/}
                         <option value='hack_zurich'>Zurich Hackathon</option>
                         <option value='college_2'>College 2</option>
                         <option value='cordis_temporary'>CORDIS</option>

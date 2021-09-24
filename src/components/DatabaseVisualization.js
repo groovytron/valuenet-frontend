@@ -11,6 +11,18 @@ const DatabaseVisualization = ({selectedDatabase}) => {
 
     const cards = [
         {
+            dbName: 'hack_zurich',
+            type: "PostgreSQL",
+            title: "Zurich Hackathon",
+            text: "A small mobility database provided by the Swiss Federal Statistical Office. The database consists of 4 generic tables, which are accessed by ValueNet via a bunch of Views to make attribute/table names more expressive.",
+            links: [
+                {
+                    label: "ERM",
+                    uri: "database/hack_zurich/erd.png"
+                }
+            ]
+        },
+        {
             dbName: 'concert_singer',
             type: "SQLite",
             title: "Concert/Singer",
@@ -29,18 +41,6 @@ const DatabaseVisualization = ({selectedDatabase}) => {
                 }, {
                     label: "Stadium",
                     uri: "database/concert_singer/stadium.png"
-                }
-            ]
-        },
-        {
-            dbName: 'hack_zurich',
-            type: "PostgreSQL",
-            title: "Zurich Hackathon",
-            text: "A small mobility database provided by the Swiss Federal Statistical Office. The database consists of 4 generic tables, which are accessed by ValueNet via a bunch of Views to make attribute/table names more expressive.",
-            links: [
-                {
-                    label: "ERM",
-                    uri: "database/hack_zurich/erd.png"
                 }
             ]
         },
@@ -78,18 +78,18 @@ const DatabaseVisualization = ({selectedDatabase}) => {
                 }
             ]
         },
-        {
-            dbName: 'cordis_temporary',
-            type: "PostgreSQL",
-            title: "CORDIS",
-            text: "CORDIS is the Community Research and Development Information Service. This productive database provides information about european research projects, project members, programs, institutions and researchers. The PostgreSQL database contains 23 tables.",
-            links: [
-                {
-                    label: "ERM",
-                    uri: "database/cordis_temporary/erd.png"
-                }
-            ]
-        }
+      // {
+      //       dbName: 'cordis_temporary',
+      //       type: "PostgreSQL",
+      //       title: "CORDIS",
+      //       text: "CORDIS is the Community Research and Development Information Service. This productive database provides information about european research projects, project members, programs, institutions and researchers. The PostgreSQL database contains 23 tables.",
+      //       links: [
+      //           {
+      //               label: "ERM",
+      //               uri: "database/cordis_temporary/erd.png"
+      //           }
+      //       ]
+      //   }
     ]
 
     if (!dataRaw) {
